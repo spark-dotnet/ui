@@ -1,0 +1,17 @@
+﻿<div tabindex="0"
+     class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 relative rounded-md border"
+     x-show="@AlpinePropertyName == 'preview'">
+    <div class="theme-zinc w-full" style="--radius: 0.5rem;">
+        <div class="preview flex min-h-[350px] w-full justify-center p-10 items-center">
+            <div>
+                @ChildContent
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+
+    [Parameter] public string AlpinePropertyName { get; set; } = "viewer";
+}

@@ -1,0 +1,36 @@
+﻿@page "/docs/components/large"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Large
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Large
+	</TypographyH1>
+	<TypographyLead>
+		Style for a text element with bolded larger text
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<TypographyLarge>
+				Etiam sodales arcu vel lacinia cursus?
+			</TypographyLarge>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<TypographyLarge>
+	Etiam sodales arcu vel lacinia cursus?
+</TypographyLarge>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>

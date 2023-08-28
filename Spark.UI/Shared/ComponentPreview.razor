@@ -1,0 +1,30 @@
+﻿<div class="group relative my-4 flex flex-col space-y-2" x-data="{ @AlpinePropertyName: 'preview' }">
+    <div class="relative mr-auto w-full">
+        <div class="flex items-center justify-between pb-3">
+            <div class="inline-flex h-9 items-center text-muted-foreground w-full justify-start rounded-none border-b bg-transparent p-0">
+                <button type="button"
+                        role="tab"
+                        class="inline-flex items-center justify-center whitespace-nowrap py-1 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 relative h-9 rounded-t-lg px-4 pb-3 pt-2 font-semibold shadow-none transition-none"
+                        :class="@AlpinePropertyName == 'preview' ? 'text-foreground bg-muted' : 'text-muted-foreground'"
+                        tabindex="0"
+                        x-on:click="@AlpinePropertyName = 'preview'">
+                    Preview
+                </button>
+                <button type="button"
+                        class="inline-flex items-center justify-center whitespace-nowrap py-1 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  relative h-9 rounded-t-lg px-4 pb-3 pt-2 font-semibold shadow-none transition-none"
+                        :class="@AlpinePropertyName == 'code' ? 'text-foreground bg-muted' : 'text-muted-foreground'"
+                        tabindex="-1"
+                        x-on:click="@AlpinePropertyName = 'code'">
+                    Code
+                </button>
+            </div>
+        </div>
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+
+    [Parameter] public string AlpinePropertyName { get; set; } = "viewer";
+}

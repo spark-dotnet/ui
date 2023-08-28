@@ -1,0 +1,32 @@
+﻿@inherits SparkComponent
+
+<button class="h-10 px-4 py-2 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 @variants[Variant] @classes" @attributes="@attributes">
+	@ChildContent
+</button>
+
+@code {
+	[Parameter]
+	public ButtonVariant Variant { get; set; } = ButtonVariant.Default;
+
+	private Dictionary<ButtonVariant, string> variants = new Dictionary<ButtonVariant, string>()
+	{
+		{
+			ButtonVariant.Default, "bg-primary text-primary-foreground hover:bg-primary/90"
+		},
+		{
+			ButtonVariant.Destructive, "bg-destructive text-destructive-foreground hover:bg-destructive/90"
+		},
+		{
+			ButtonVariant.Outline, "border border-input bg-background hover:bg-accent hover:text-accent-foreground"
+		},
+		{
+			ButtonVariant.Secondary, "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+		},
+		{
+			ButtonVariant.Ghost, "hover:bg-accent hover:text-accent-foreground"
+		},
+		{
+			ButtonVariant.Link, "text-primary underline-offset-4 hover:underline"
+		}
+	};
+}

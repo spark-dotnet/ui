@@ -1,0 +1,44 @@
+﻿@page "/docs/components/inline-code"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Inline Code
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Inline Code
+	</TypographyH1>
+	<TypographyLead>
+		Style for the code element
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<TypographyP>
+				Run 
+				<Spark.UI.Shared.Components.Typography.InlineCode>
+					 dotnet build
+				</Spark.UI.Shared.Components.Typography.InlineCode>
+				to get started
+			</TypographyP> 
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<TypographyP>
+	Run
+	<InlineCode>
+		dotnet build
+	</InlineCode>
+	to get started
+</TypographyP> ")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>
