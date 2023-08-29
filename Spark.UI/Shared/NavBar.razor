@@ -2,6 +2,16 @@
 
 <div class="container flex h-14 items-center bg-white">
     <div class="mr-4 flex">
+        <div class="md:hidden mr-4">
+            <Button Variant="ButtonVariant.Ghost" type="button" x-on:click="mobileMenuOpen = ! mobileMenuOpen">
+                <div :class="mobileMenuOpen ? 'hidden' : 'block'">
+                    <IconMenu class="w-4 h-4" />
+                </div>
+                <div :class="mobileMenuOpen ? 'block' : 'hidden'" x-cloak>
+                    <IconX class="w-4 h-4" />
+                </div>
+            </Button>
+        </div>
         <a class="mr-6 flex items-center space-x-2" href="/">
             <span class="font-bold inline-block">spark.ui</span>
         </a>

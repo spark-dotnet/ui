@@ -1,4 +1,4 @@
-﻿namespace Spark.UI.Shared.Components;
+﻿namespace Spark.UI.Shared.UI;
 
 public enum AlertVariant
 {
@@ -6,6 +6,14 @@ public enum AlertVariant
 	Success,
 	Info,
 	Warning,
+	Destructive,
+}
+
+public enum BadgeVariant
+{
+	Default,
+	Secondary,
+	Outline,
 	Destructive,
 }
 
