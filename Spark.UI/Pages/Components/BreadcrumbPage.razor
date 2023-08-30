@@ -1,0 +1,48 @@
+﻿@page "/docs/components/breadcrumb"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Breadcrumb
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Breadcrumb
+	</TypographyH1>
+	<TypographyLead>
+		Displays a breadcrumb component
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<Breadcrumb>
+				<BreadcrumbItem>
+					Profile
+				</BreadcrumbItem>
+				<ChevronRight class="h-4 w-4" />
+				<BreadcrumbItem IsActive="true">
+					Edit
+				</BreadcrumbItem>
+			</Breadcrumb>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<Breadcrumb>
+	<BreadcrumbItem>
+		Profile
+	</BreadcrumbItem>
+	<ChevronRight class=""h-4 w-4"" />
+	<BreadcrumbItem IsActive=""true"">
+		Edit
+	</BreadcrumbItem>
+</Breadcrumb>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>

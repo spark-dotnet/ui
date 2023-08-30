@@ -1,0 +1,104 @@
+﻿@page "/docs/components/buttons"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Buttons
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Buttons
+	</TypographyH1>
+	<TypographyLead>
+		Displays a button or link that looks like a button
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Primary
+	</TypographyH2>
+	<ComponentPreview AlpinePropertyName="DefaultViewer">
+		<ComponentPreviewRendered AlpinePropertyName="DefaultViewer">
+			<Button>Button</Button>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode AlpinePropertyName="DefaultViewer">
+			<CodeExample>
+@($@"<Button>Button</Button>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Secondary
+	</TypographyH2>
+	<ComponentPreview AlpinePropertyName="SecondaryViewer">
+		<ComponentPreviewRendered AlpinePropertyName="SecondaryViewer">
+			<Button Variant="ButtonVariant.Secondary">Secondary</Button>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode AlpinePropertyName="SecondaryViewer">
+			<CodeExample>
+@($@"<Button Variant=""ButtonVariant.Secondary"">Secondary</Button>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Destructive
+	</TypographyH2>
+	<ComponentPreview AlpinePropertyName="DestructiveViewer">
+		<ComponentPreviewRendered AlpinePropertyName="DestructiveViewer">
+			<Button Variant="ButtonVariant.Destructive">Destructive</Button>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode AlpinePropertyName="DestructiveViewer">
+			<CodeExample>
+@($@"<Button Variant=""ButtonVariant.Destructive"">Destructive</Button>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Outline
+	</TypographyH2>
+	<ComponentPreview AlpinePropertyName="OutlineViewer">
+		<ComponentPreviewRendered AlpinePropertyName="OutlineViewer">
+			<Button Variant="ButtonVariant.Outline">Outline</Button>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode AlpinePropertyName="OutlineViewer">
+			<CodeExample>
+@($@"<Button Variant=""ButtonVariant.Outline"">Outline</Button>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Ghost
+	</TypographyH2>
+	<ComponentPreview AlpinePropertyName="GhostViewer">
+		<ComponentPreviewRendered AlpinePropertyName="GhostViewer">
+			<Button Variant="ButtonVariant.Ghost">Ghost</Button>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode AlpinePropertyName="GhostViewer">
+			<CodeExample>
+@($@"<Button Variant=""ButtonVariant.Ghost"">Ghost</Button>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Icon
+	</TypographyH2>
+	<ComponentPreview AlpinePropertyName="IconViewer">
+		<ComponentPreviewRendered AlpinePropertyName="IconViewer">
+			<Button Variant="ButtonVariant.Outline">
+				<ChevronRight class="h-4 h-4" />
+			</Button>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode AlpinePropertyName="IconViewer">
+			<CodeExample>
+@($@"<Button Variant=""ButtonVariant.Outline"">
+	<ChevronRight class=""h-4 h-4"" />
+</Button>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>

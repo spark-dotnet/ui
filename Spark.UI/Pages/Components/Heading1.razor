@@ -1,0 +1,36 @@
+﻿@page "/docs/components/heading1"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Heading 1
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Heading1
+	</TypographyH1>
+	<TypographyLead>
+		Style for the h1 element
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<TypographyH1>
+				Lorem Ipsum
+			</TypographyH1>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<TypographyH1>
+	Lorem Ipsum
+</TypographyH1>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>

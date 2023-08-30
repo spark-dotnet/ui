@@ -1,0 +1,18 @@
+﻿@inherits SparkComponent
+
+<a class="hidden sm:block transition-colors hover:text-foreground/80 @activeClasses @classes" @attributes="@attributes">
+	@ChildContent
+</a>
+
+
+
+@code {
+	[Parameter]
+	public bool IsActive { get; set; } = false;
+	private string activeClasses = "";
+
+	protected override void OnInitialized()
+	{
+		activeClasses = IsActive ? "text-foreground" : "text-foreground/60";
+	}
+}

@@ -1,0 +1,13 @@
+﻿<div role="tabpanel"
+     tabindex="0"
+     class="mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+     x-show="@AlpinePropertyName == 'code'"
+     x-cloak>
+    @ChildContent
+</div>
+
+@code {
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+
+    [Parameter] public string AlpinePropertyName { get; set; } = "viewer";
+}

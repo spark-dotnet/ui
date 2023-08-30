@@ -1,0 +1,11 @@
+{
+  "name": "dotnetjobs",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.4",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "tailwindcss-animate": "^1.0.6"
+  }
+}

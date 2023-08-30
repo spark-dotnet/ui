@@ -1,0 +1,9 @@
+﻿@ChildContent.ToString()
+
+@code {
+    [Parameter] public required RenderFragment ChildContent { get; set; }
+    protected override bool ShouldRender()
+    {
+        return false;
+    }
+}

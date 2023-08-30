@@ -1,0 +1,29 @@
+﻿@inherits SparkComponent
+
+<div role="alert" class="relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 @variants[Variant] @classes" @attributes="@attributes">
+	@ChildContent
+</div>
+
+@code {
+	[Parameter]
+	public AlertVariant Variant { get; set; } = AlertVariant.Default;
+
+	private Dictionary<AlertVariant, string> variants = new Dictionary<AlertVariant, string>()
+	{
+		{
+			AlertVariant.Default, "bg-background text-foreground [&>svg]:text-foreground"
+		},
+		{
+			AlertVariant.Success, "border-green-600/50 text-green-600 dark:border-green-600 [&>svg]:text-green-600 bg-green-50"
+		},
+		{
+			AlertVariant.Info, "border-blue-600/50 text-blue-600 dark:border-blue-600 [&>svg]:text-blue-600 bg-blue-50"
+		},
+		{
+			AlertVariant.Warning, "border-yellow-600/50 text-yellow-600 dark:border-yellow-600 [&>svg]:text-yellow-600 bg-yellow-50"
+		},
+		{
+			AlertVariant.Destructive, "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive bg-red-50"
+		}
+	};
+}
