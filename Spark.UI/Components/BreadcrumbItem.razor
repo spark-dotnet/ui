@@ -1,0 +1,16 @@
+﻿@inherits SparkComponent
+
+<p class="text-sm @activeClasses @classes" @attributes="@attributes">
+	@ChildContent
+</p>
+
+@code {
+	[Parameter]
+	public bool IsActive { get; set; } = false;
+	private string activeClasses = "";
+
+	protected override void OnInitialized()
+	{
+		activeClasses = IsActive ? "text-foreground font-medium" : "text-muted-foreground";
+	}
+}

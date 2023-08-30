@@ -1,0 +1,73 @@
+﻿@page "/docs/components/inputs"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Input Text
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Input Text
+	</TypographyH1>
+	<TypographyLead>
+		Displays a form input text field.
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Text
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="grid w-full max-w-sm items-center gap-1.5">
+				<Label for="Name">Name</Label>
+				<InputText type="text" @bind-Value="Name" id="Name" placeholder="Name" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""grid w-full max-w-sm items-center gap-1.5"">
+	<Label for=""Name"">Name</Label>
+	<InputText type=""text"" @bind-Value=""Name"" id=""Name"" placeholder=""Name"" />
+</div>
+
+@code {{
+	private string Name = """";
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Date
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="grid w-full max-w-sm items-center gap-1.5">
+				<Label for="date">Date</Label>
+				<InputDate @bind-Value="Date" id="date" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""grid w-full max-w-sm items-center gap-1.5"">
+	<Label for=""date"">Date</Label>
+	<InputDate @bind-Value=""Date"" id=""date"" />
+</div>
+
+@code {{
+	private DateTime Date = DateTime.Now;
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>
+
+@code {
+	private string Name = "";
+	private DateTime Date = DateTime.Now;
+}

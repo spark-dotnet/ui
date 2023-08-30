@@ -1,0 +1,87 @@
+﻿@page "/docs/installation"
+@layout DocsLayout
+
+<PageTitle>
+	How to install the library in your Blazor or Spark app - spark.ui
+</PageTitle>
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Installation
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Installation
+	</TypographyH1>
+	<TypographyLead>
+		How to install spark.ui
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Spark.NET
+	</TypographyH2>
+	<TypographyH3 class="mt-6">
+		1. Create a new Spark project
+	</TypographyH3>
+	<TypographyP>
+		Spark.NET Blazor projects come with spark.ui already installed. Simply run the Spark CLI `new` command to create a fresh project.
+		<span class="flex mt-2">
+			<InlineCode>spark new MyApp</InlineCode>
+		</span>
+	</TypographyP>
+	<TypographyH3 class="mt-10">
+		2. Start the Tailwind CLI build process
+	</TypographyH3>
+	<TypographyP>
+		Run the Tailwind CLI tool to scan your template files for classes and build your CSS.
+		<span class="flex mt-2">
+			<InlineCode>npx tailwindcss -i ./Resources/Css/globals.css -o ./wwwroot/css/styles.css --watch</InlineCode>
+		</span>
+	</TypographyP>
+	<TypographyH2>
+		Blazor
+	</TypographyH2>
+	<TypographyH3 class="mt-6">
+		1. Add Tailwind CSS to your Blazor project
+	</TypographyH3>
+	<TypographyP>
+		Components are styled using Tailwind CSS and a customized <InlineCode>tailwind.config.js</InlineCode> file. You will need to install Tailwind CSS in your project.
+	</TypographyP>
+	<TypographyH3 class="mt-10">
+		2. Configure tailwind.config.js
+	</TypographyH3>
+	<TypographyP>
+	</TypographyP>
+	<TypographyH3 class="mt-10">
+		3. Configure styles
+	</TypographyH3>
+	<TypographyP>
+	</TypographyP>
+	<TypographyH3 class="mt-10">
+		4. Add components
+	</TypographyH3>
+	<TypographyP>
+		Download the components and paste them into the Shared folder in your Blazor project.
+		<div class="mt-4">
+			<Link href="/spark-components.zip" download>
+			Download Components
+			</Link>
+		</div>
+	</TypographyP>
+	<TypographyH3 class="mt-10">
+		5. Add css file reference
+	</TypographyH3>
+	<TypographyP>
+	</TypographyP>
+	<TypographyH3 class="mt-10">
+		6. Start tailwind watch
+	</TypographyH3>
+	<TypographyP>
+	</TypographyP>
+</div>
