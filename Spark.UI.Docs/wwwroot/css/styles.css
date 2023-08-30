@@ -1280,6 +1280,12 @@ body {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -1823,7 +1829,19 @@ body {
   display: none !important;
 }
 
-input[type=text], input[type=email] {
+input[type=text],
+input[type=email],
+input[type=date],
+input[type=file],
+input[type=datetime-local],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=time],
+input[type=url],
+input[type=week] {
   display: flex;
   height: 2.5rem;
   width: 100%;
@@ -1840,7 +1858,19 @@ input[type=text], input[type=email] {
   --tw-ring-offset-color: hsl(var(--background));
 }
 
-input[type=text]::file-selector-button, input[type=email]::file-selector-button {
+input[type=text]::file-selector-button,
+input[type=email]::file-selector-button,
+input[type=date]::file-selector-button,
+input[type=file]::file-selector-button,
+input[type=datetime-local]::file-selector-button,
+input[type=month]::file-selector-button,
+input[type=number]::file-selector-button,
+input[type=password]::file-selector-button,
+input[type=search]::file-selector-button,
+input[type=tel]::file-selector-button,
+input[type=time]::file-selector-button,
+input[type=url]::file-selector-button,
+input[type=week]::file-selector-button {
   border-width: 0px;
   background-color: transparent;
   font-size: 0.875rem;
@@ -1848,20 +1878,56 @@ input[type=text]::file-selector-button, input[type=email]::file-selector-button 
   font-weight: 500;
 }
 
-input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder {
+input[type=text]::-moz-placeholder, input[type=email]::-moz-placeholder, input[type=date]::-moz-placeholder, input[type=file]::-moz-placeholder, input[type=datetime-local]::-moz-placeholder, input[type=month]::-moz-placeholder, input[type=number]::-moz-placeholder, input[type=password]::-moz-placeholder, input[type=search]::-moz-placeholder, input[type=tel]::-moz-placeholder, input[type=time]::-moz-placeholder, input[type=url]::-moz-placeholder, input[type=week]::-moz-placeholder {
   color: hsl(var(--muted-foreground));
 }
 
-input[type=text]::placeholder, input[type=email]::placeholder {
+input[type=text]::placeholder,
+input[type=email]::placeholder,
+input[type=date]::placeholder,
+input[type=file]::placeholder,
+input[type=datetime-local]::placeholder,
+input[type=month]::placeholder,
+input[type=number]::placeholder,
+input[type=password]::placeholder,
+input[type=search]::placeholder,
+input[type=tel]::placeholder,
+input[type=time]::placeholder,
+input[type=url]::placeholder,
+input[type=week]::placeholder {
   color: hsl(var(--muted-foreground));
 }
 
-input[type=text]:focus, input[type=email]:focus {
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=date]:focus,
+input[type=file]:focus,
+input[type=datetime-local]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus {
   border-color: hsl(var(--input));
   --tw-ring-color: hsl(var(--ring));
 }
 
-input[type=text]:focus-visible, input[type=email]:focus-visible {
+input[type=text]:focus-visible,
+input[type=email]:focus-visible,
+input[type=date]:focus-visible,
+input[type=file]:focus-visible,
+input[type=datetime-local]:focus-visible,
+input[type=month]:focus-visible,
+input[type=number]:focus-visible,
+input[type=password]:focus-visible,
+input[type=search]:focus-visible,
+input[type=tel]:focus-visible,
+input[type=time]:focus-visible,
+input[type=url]:focus-visible,
+input[type=week]:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1871,14 +1937,26 @@ input[type=text]:focus-visible, input[type=email]:focus-visible {
   --tw-ring-offset-width: 2px;
 }
 
-input[type=text]:disabled, input[type=email]:disabled {
+input[type=text]:disabled,
+input[type=email]:disabled,
+input[type=date]:disabled,
+input[type=file]:disabled,
+input[type=datetime-local]:disabled,
+input[type=month]:disabled,
+input[type=number]:disabled,
+input[type=password]:disabled,
+input[type=search]:disabled,
+input[type=tel]:disabled,
+input[type=time]:disabled,
+input[type=url]:disabled,
+input[type=week]:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-input[type=date] {
+textarea {
   display: flex;
-  height: 2.5rem;
+  min-height: 80px;
   width: 100%;
   border-radius: calc(var(--radius) - 2px);
   border-width: 1px;
@@ -1893,28 +1971,15 @@ input[type=date] {
   --tw-ring-offset-color: hsl(var(--background));
 }
 
-input[type=date]::file-selector-button {
-  border-width: 0px;
-  background-color: transparent;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
-}
-
-input[type=date]::-moz-placeholder {
+textarea::-moz-placeholder {
   color: hsl(var(--muted-foreground));
 }
 
-input[type=date]::placeholder {
+textarea::placeholder {
   color: hsl(var(--muted-foreground));
 }
 
-input[type=date]:focus {
-  border-color: hsl(var(--input));
-  --tw-ring-color: hsl(var(--ring));
-}
-
-input[type=date]:focus-visible {
+textarea:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
@@ -1924,7 +1989,7 @@ input[type=date]:focus-visible {
   --tw-ring-offset-width: 2px;
 }
 
-input[type=date]:disabled {
+textarea:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -2128,6 +2193,14 @@ input[type=checkbox]:disabled {
 
 .disabled\:opacity-50:disabled {
   opacity: 0.5;
+}
+
+.peer:disabled ~ .peer-disabled\:cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.peer:disabled ~ .peer-disabled\:opacity-70 {
+  opacity: 0.7;
 }
 
 :is(.dark .dark\:border-blue-600) {

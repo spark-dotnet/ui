@@ -1,0 +1,110 @@
+﻿@page "/docs/component-basics"
+@layout DocsLayout
+
+<PageTitle>
+	Using spark.ui components - spark.ui
+</PageTitle>
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Component Basics
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Component Basics
+	</TypographyH1>
+	<TypographyLead>
+		About spark.ui components
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyP>
+		spark.ui components are normal Razor components meant to be used in Blazor projects.
+	</TypographyP>
+	<TypographyP>
+		They're' purpose is to give you a great design base with Tailwind CSS. They do no implement functionality for you.
+	</TypographyP>
+	<TypographyP>
+		The majority of the components in the library inherit from <InlineCode>SparkComponent.razor</InlineCode>
+	</TypographyP>
+	<TypographyH2>
+		SparkComponent.razor Anatomy
+	</TypographyH2>
+	<TypographyP>
+		The SparkComponent has 2 parameters which are applicable to any component who inherits from it.
+	</TypographyP>
+	<TypographyList>
+		<li>ChildContent</li>
+		<li>AdditionalAttributes</li>
+	</TypographyList>
+	<div class="space-y-6">
+		<div>
+			<TypographyH3>
+				ChildContent
+			</TypographyH3>
+			<TypographyP>
+				ChildContent is a <InlineCode>RenderFragment</InlineCode> and is set to anything inside your components tags.
+			</TypographyP>
+			<TypographyP>
+				For example, the text between the below <InlineCode>TypographyP</InlineCode> component will be set to the ChildContent and displayed.
+			</TypographyP>
+			<CodeExample>
+@(@"<TypographyP>
+	This text is set to the ChildContent parameter.
+</TypographyP>
+")
+			</CodeExample>
+			<TypographyP>
+				This makes components extremely flexible as you can make any markup or other components children of a component.
+			</TypographyP>
+		</div>
+		<div class="">
+			<TypographyH3>
+				AdditionalAttributes
+			</TypographyH3>
+			<TypographyP>
+				AdditionalAttributes is a <InlineCode>Dictionary</InlineCode> that will pickup any html attribute you pass into the component outside of it's normal parameters.
+			</TypographyP>
+			<TypographyP>
+				For example, you want to set the type of a button. Passing the html attribute <InlineCode>type="submit"</InlineCode> to the <InlineCode>Button</InlineCode> component will be picked up by this dictionary and display it correctly in the rendered output.
+			</TypographyP>
+			<CodeExample>
+@(@"<Button type=""submit"">
+	Submit
+</Button>
+")
+			</CodeExample>
+		</div>
+	</div>
+	<TypographyH2>
+		Variants
+	</TypographyH2>
+	<TypographyP>
+		Some components, such as the <InlineCode>Button</InlineCode> component, will have a <InlineCode>Variant</InlineCode> enum parameter.
+	</TypographyP>
+	<TypographyP>
+		Variant parameters change the Tailwind CSS classes applied to the rendered element, making it easy to implement multiple styles for 1 component.
+	</TypographyP>
+	<TypographyP>
+		Any component using a Variant parameter will use the default variant if none are provided.
+	</TypographyP>
+	<div class="space-y-2 mt-6">
+		<TypographyH4>Default Variant</TypographyH4>
+		<CodeExample>
+			@($@"<Button>Button</Button>")
+		</CodeExample>
+		<Button>Button</Button>
+	</div>
+	<div class="space-y-2 mt-6">
+		<TypographyH4>Outline Variant</TypographyH4>
+		<CodeExample>
+			@($@"<Button Variant=""ButtonVariant.Outline"">Button</Button>")
+		</CodeExample>
+		<Button Variant="ButtonVariant.Outline">Button</Button>
+	</div>
+</div>

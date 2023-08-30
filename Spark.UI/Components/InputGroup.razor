@@ -1,0 +1,39 @@
+﻿@using System.Linq.Expressions;
+@using Microsoft.AspNetCore.Components.Forms
+
+<div class="space-y-1.5">
+	<Label for="@_fieldIdentifier.FieldName">
+		@Label
+	</Label>
+	@ChildContent
+	@if (!String.IsNullOrEmpty(Description))
+	{
+		<FormDescription>
+			@Description
+		</FormDescription>
+	}
+	<ValidationMessage For="For" />
+</div>
+
+@code {
+	[Parameter] public required RenderFragment ChildContent { get; set; }
+	[Parameter] public Expression<Func<string>>? For { get; set; }
+	[Parameter] public string? Label { get; set; }
+	[Parameter] public string? Description { get; set; }
+
+	private FieldIdentifier _fieldIdentifier;
+	protected override void OnParametersSet()
+	{
+		base.OnParametersSet();
+
+		if (For == null)
+		{
+			throw new InvalidOperationException($"{GetType()} requires a value for the " +
+				$"{nameof(For)} parameter.");
+		}
+
+		// Derive label from For property
+		_fieldIdentifier = FieldIdentifier.Create(For);
+		if (String.IsNullOrEmpty(Label)) Label = _fieldIdentifier.FieldName;
+	}
+}

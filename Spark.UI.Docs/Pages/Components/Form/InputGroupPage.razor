@@ -1,0 +1,160 @@
+﻿@page "/docs/components/input-group"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Input Group
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Input Group
+	</TypographyH1>
+	<TypographyLead>
+		A component to display a form input field with a label and validation message
+	</TypographyLead>
+	<TypographyP>
+		Input groups will create a Label and Validation Message for you.
+	</TypographyP>
+	<TypographyP>
+		The <InlineCode>For</InlineCode> parameter is used to set up the Label and ValidationMessage. 
+	</TypographyP>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Default
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Name">
+					<InputText type="text" @bind-Value="Form.Name" id="Name" />
+				</InputGroup>
+				<InputGroup For="() => Form.Email">
+					<InputText type="email" @bind-Value="Form.Email" id="Email" />
+				</InputGroup>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Name"">
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
+	</InputGroup>
+	<InputGroup For=""() => Form.Email"">
+		<InputText type=""email"" @bind-Value=""Form.Email"" id=""Email"" />
+	</InputGroup>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Custom Labels
+	</TypographyH2>
+	<TypographyP>
+		The <InlineCode>Label</InlineCode> parameter is optional. If provided, it will override the derived label from the <InlineCode>For</InlineCode> parameter.
+	</TypographyP>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm2">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Name" Label="Fullname">
+					<InputText type="text" @bind-Value="Form.Name" id="Name" />
+				</InputGroup>
+				<InputGroup For="() => Form.Email" Label="Email Address">
+					<InputText type="email" @bind-Value="Form.Email" id="Email" />
+				</InputGroup>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Name"" Label=""Fullname"">
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
+	</InputGroup>
+	<InputGroup For=""() => Form.Email"" Label=""Email Address"">
+		<InputText type=""email"" @bind-Value=""Form.Email"" id=""Email"" />
+	</InputGroup>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Descriptions
+	</TypographyH2>
+	<TypographyP>
+		The <InlineCode>Description</InlineCode> parameter is optional. If provided, a description will be displayed under the form control.
+	</TypographyP>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm3">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Name" Description="Provide your full name">
+					<InputText type="text" @bind-Value="Form.Name" id="Name" />
+				</InputGroup>
+				<InputGroup For="() => Form.Email" Description="Provide your business email">
+					<InputText type="email" @bind-Value="Form.Email" id="Email" />
+				</InputGroup>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Name"" Description=""Provide your full name"">
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
+	</InputGroup>
+	<InputGroup For=""() => Form.Email"" Description=""Provide your business email"">
+		<InputText type=""email"" @bind-Value=""Form.Email"" id=""Email"" />
+	</InputGroup>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>
+
+@code {
+	[SupplyParameterFromForm] public ProfileForm Form { get; set; }
+
+	protected override void OnInitialized() => Form ??= new();
+
+	bool submitted = false;
+
+	public void Submit()
+	{
+		Form = new();
+	}
+
+	public class ProfileForm
+	{
+		[Required]
+		public string Name { get; set; }
+		[Required]
+		public string Email { get; set; }
+	}
+}

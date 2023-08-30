@@ -19,6 +19,71 @@
 	</TypographyLead>
 </div>
 <div class="pb-12 pt-8">
+	<TypographyH2>
+		Example
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="space-y-1.5">
+				<Label for="Name">
+					Name
+				</Label>
+				<InputText type="text" @bind-Value="Name" id="Name" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""space-y-1.5"">
+	<Label for=""Name"">
+		Name
+	</Label>
+	<InputText type=""text"" @bind-Value=""Name"" id=""Name"" />
+</div>
+
+@code {{
+	private string Name = """";
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Input Group
+	</TypographyH2>
+	<TypographyP>
+		The <InlineCode>InputGroup</InlineCode> component will display a label for you based on the <InlineCode>For</InlineCode> parameter.
+	</TypographyP>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm3">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Name">
+					<InputText type="text" @bind-Value="Form.Name" id="Name" />
+				</InputGroup>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Name"">
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
+	</InputGroup>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Checkbox Label
+	</TypographyH2>
+	<TypographyP>
+		Checkbox labels typically come after the <InlineCode>InputCheckbox</InlineCode> component.
+	</TypographyP>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
 			<div class="flex items-center space-x-2">
@@ -46,5 +111,21 @@
 </div>
 
 @code {
+	private string Name = "";
 	private bool IsSelected = false;
+	[SupplyParameterFromForm] public ProfileForm Form { get; set; }
+	protected override void OnInitialized() => Form ??= new();
+
+	public void Submit()
+	{
+		Form = new();
+	}
+
+	public class ProfileForm
+	{
+		[Required]
+		public string Name { get; set; }
+		[Required]
+		public string Email { get; set; }
+	}
 }

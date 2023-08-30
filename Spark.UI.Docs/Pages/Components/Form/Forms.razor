@@ -1,0 +1,100 @@
+﻿@page "/docs/components/forms"
+@layout DocsLayout
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Forms
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Forms
+	</TypographyH1>
+	<TypographyLead>
+		Styles for forms, inputs, selects, etc...
+	</TypographyLead>
+	<TypographyP>
+		Unlike the rest of the components in spark.ui, there are no custom form or input components.
+	</TypographyP>
+	<TypographyP>
+		Instead, we use the custom form and input components provided by Microsoft and style them in the <InlineCode>globals.css</InlineCode> file.
+	</TypographyP>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Example
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm">
+				<DataAnnotationsValidator />
+				<div class="space-y-1.5">
+					<Label for="name">Name</Label>
+					<InputText type="text" @bind-Value="Form.Name" id="name" />
+					<ValidationMessage For="() => Form.Name" />
+				</div>
+				<Button type="submit">Submit</Button>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<div class=""space-y-1.5"">
+		<Label for=""name"">Name</Label>
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""name"" />
+		<ValidationMessage For=""() => Form.Name"" />
+	</div>
+	<Button type=""submit"">Submit</Button>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Input Groups
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm2">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Name" Description="Provide your full legal name">
+					<InputText type="text" @bind-Value="Form.Name" id="Name" />
+				</InputGroup>
+				<Button type="submit">Submit</Button>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Name"" Description=""Provide your full legal name"">
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
+	</InputGroup>
+	<Button type=""submit"">Submit</Button>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>
+
+@code {
+	[SupplyParameterFromForm] public ProfileForm Form { get; set; }
+
+	protected override void OnInitialized() => Form ??= new();
+
+	bool submitted = false;
+
+	public void Submit() {
+		Form = new();
+	}
+
+	public class ProfileForm
+	{
+		[Required]
+		public string Name { get; set; }
+	}
+}

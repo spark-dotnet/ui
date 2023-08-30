@@ -7,26 +7,57 @@
 	</BreadcrumbItem>
 	<ChevronRight class="h-4 w-4" />
 	<BreadcrumbItem IsActive="true">
-		Input Text
+		Input
 	</BreadcrumbItem>
 </Breadcrumb>
 <div class="space-y-4">
 	<TypographyH1>
-		Input Text
+		Input
 	</TypographyH1>
 	<TypographyLead>
-		Displays a form input text field.
+		Displays a form input control
 	</TypographyLead>
 </div>
 <div class="pb-12 pt-8">
 	<TypographyH2>
 		Text
 	</TypographyH2>
+	<Alert Variant="AlertVariant.Warning" class="my-6">
+		<IconAlertTriangle class="h-4 w-4" />
+		<AlertTitle>Gotchya Warning!</AlertTitle>
+		<AlertDescription>
+			The InputText component does not set the type attribute for you. It is required for you to set this yourself or spark.ui styles will not apply.
+		</AlertDescription>
+		<AlertDescription class="mt-2">
+			Example: type="text"
+		</AlertDescription>
+	</Alert>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<div class="grid w-full max-w-sm items-center gap-1.5">
-				<Label for="Name">Name</Label>
+			<div>
 				<InputText type="text" @bind-Value="Name" id="Name" placeholder="Name" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<InputText type=""text"" @bind-Value=""Name"" placeholder=""Name"" />
+
+@code {{
+	private string Name = """";
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Label
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div>
+				<div class="grid w-full max-w-sm items-center gap-1.5">
+					<Label for="Name">Name</Label>
+					<InputText type="text" @bind-Value="Name" id="Name" />
+				</div>
 			</div>
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
@@ -43,24 +74,119 @@
 		</ComponentPreviewCode>
 	</ComponentPreview>
 	<TypographyH2>
+		With Input Group
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Name">
+				<form>
+					<div class="space-y-1.5">
+						<label for="Name" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 ">Name</label>
+						<input type="text" id="Name" name="Name" class="valid" value="">
+						<p class="text-sm text-muted-foreground">
+							Provide your fullname
+						</p>
+					</div>
+				</form>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Name"">
+	<InputGroup For=""() => Name""  Description=""Provide your fullname"">
+		<InputText type=""text"" @bind-Value=""Name"" id=""Name"" />
+	</InputGroup>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
 		Date
 	</TypographyH2>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<div class="grid w-full max-w-sm items-center gap-1.5">
-				<Label for="date">Date</Label>
+			<div>
 				<InputDate @bind-Value="Date" id="date" />
 			</div>
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<div class=""grid w-full max-w-sm items-center gap-1.5"">
-	<Label for=""date"">Date</Label>
-	<InputDate @bind-Value=""Date"" id=""date"" />
-</div>
+@($@"<InputDate @bind-Value=""Date"" />
 
 @code {{
 	private DateTime Date = DateTime.Now;
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		File
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div>
+				<InputFile id="avatar" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<InputFile />")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Email
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div>
+				<InputText type="email" @bind-Value="Email" placeholder="Email" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<InputText type=""email"" @bind-Value=""Email"" placeholder=""Email"" />
+
+@code {{
+	private string Email = """";
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Password
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div>
+				<InputText type="password" @bind-Value="Password" placeholder="Password" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<InputText type=""password"" @bind-Value=""Password"" placeholder=""Password"" />
+
+@code {{
+	private string Password = """";
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Disabled
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div>
+				<InputText type="text" @bind-Value="Name" id="NameDisabled" placeholder="Name" disabled />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<InputText type=""text"" @bind-Value=""Name"" placeholder=""Name"" disabled />
+
+@code {{
+	private string Name = """";
 }}")
 			</CodeExample>
 		</ComponentPreviewCode>
@@ -69,5 +195,7 @@
 
 @code {
 	private string Name = "";
+	private string Email = "";
+	private string Password = "";
 	private DateTime Date = DateTime.Now;
 }

@@ -15,10 +15,13 @@
 		Checkbox
 	</TypographyH1>
 	<TypographyLead>
-		Checkbox form control that toggles between checked and not checked.
+		Checkbox form control that toggles between checked and not checked
 	</TypographyLead>
 </div>
 <div class="pb-12 pt-8">
+	<TypographyH2>
+		Example
+	</TypographyH2>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
 			<div class="flex items-center space-x-2">
@@ -32,6 +35,70 @@
 			<CodeExample>
 @($@"<div class=""flex items-center space-x-2"">
 	<InputCheckbox @bind-Value=""IsSelected"" id=""terms"" />
+	<Label for=""terms"">
+		Accept terms and conditions
+	</Label>
+</div>
+
+@code {{
+	private bool IsSelected = false;
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Description
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="flex items-top space-x-2">
+				<InputCheckbox @bind-Value="IsSelected" id="terms2" />
+				<div class="grid gap-1.5 leading-none">
+					<Label for="terms2">
+						Accept terms and conditions
+					</Label>
+					<FormDescription>
+						You agree to our Terms of Service
+					</FormDescription>
+				</div>
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""flex items-top space-x-2"">
+	<InputCheckbox @bind-Value=""IsSelected"" id=""terms"" />
+	<div class=""grid gap-1.5 leading-none"">
+		<Label for=""terms"">
+			Accept terms and conditions
+		</Label>
+		<FormDescription>
+			You agree to our Terms of Service
+		</FormDescription>
+	</div>
+</div>
+
+@code {{
+	private bool IsSelected = false;
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Disabled
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="flex items-center space-x-2">
+				<InputCheckbox @bind-Value="IsSelected" id="terms3" class="peer" disabled />
+				<Label for="terms3">
+					Accept terms and conditions
+				</Label>
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""flex items-center space-x-2"">
+	<InputCheckbox @bind-Value=""IsSelected"" id=""terms"" class=""peer"" disabled />
 	<Label for=""terms"">
 		Accept terms and conditions
 	</Label>

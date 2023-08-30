@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34004.107
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spark.UI.Docs", "Spark.UI.Docs\Spark.UI.Docs.csproj", "{1260F4CB-6C19-4B50-9E97-B120431B52CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spark.UI", "Spark.UI\Spark.UI.csproj", "{864E2152-CA5D-4782-AAF3-40AD5C44D788}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spark.UI", "Spark.UI\Spark.UI.csproj", "{864E2152-CA5D-4782-AAF3-40AD5C44D788}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
