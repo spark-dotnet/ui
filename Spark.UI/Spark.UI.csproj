@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0-preview.7.23375.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

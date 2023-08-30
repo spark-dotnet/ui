@@ -917,10 +917,6 @@ body {
   position: fixed;
 }
 
-.absolute {
-  position: absolute;
-}
-
 .relative {
   position: relative;
 }
@@ -1330,10 +1326,6 @@ body {
   border-radius: 0px;
 }
 
-.rounded-sm {
-  border-radius: calc(var(--radius) - 4px);
-}
-
 .rounded-t-lg {
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
@@ -1395,10 +1387,6 @@ body {
 
 .border-input {
   border-color: hsl(var(--input));
-}
-
-.border-primary {
-  border-color: hsl(var(--primary));
 }
 
 .border-transparent {
@@ -2093,10 +2081,6 @@ input[type=checkbox]:disabled {
   --tw-ring-color: rgb(199 210 254 / var(--tw-ring-opacity));
 }
 
-.focus\:ring-primary:focus {
-  --tw-ring-color: hsl(var(--primary));
-}
-
 .focus\:ring-ring:focus {
   --tw-ring-color: hsl(var(--ring));
 }
@@ -2140,10 +2124,6 @@ input[type=checkbox]:disabled {
 
 .disabled\:pointer-events-none:disabled {
   pointer-events: none;
-}
-
-.disabled\:cursor-not-allowed:disabled {
-  cursor: not-allowed;
 }
 
 .disabled\:opacity-50:disabled {
