@@ -1,6 +1,8 @@
 ﻿@page "/docs/components/forms"
 @layout DocsLayout
 
+<PageTitle>Form component for Blazor - spark.ui</PageTitle>
+
 <Breadcrumb>
 	<BreadcrumbItem>
 		Docs
@@ -37,19 +39,23 @@
 					<InputText type="text" @bind-Value="Form.Name" id="name" />
 					<ValidationMessage For="() => Form.Name" />
 				</div>
-				<Button type="submit">Submit</Button>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
 			</EditForm>
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
 	<DataAnnotationsValidator />
 	<div class=""space-y-1.5"">
 		<Label for=""name"">Name</Label>
 		<InputText type=""text"" @bind-Value=""Form.Name"" id=""name"" />
 		<ValidationMessage For=""() => Form.Name"" />
 	</div>
-	<Button type=""submit"">Submit</Button>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
 </EditForm>")
 			</CodeExample>
 		</ComponentPreviewCode>
@@ -57,24 +63,62 @@
 	<TypographyH2>
 		With Input Groups
 	</TypographyH2>
+	<TypographyP>
+		Input groups will create a Label and Validation Message for you based on the <InlineCode>For</InlineCode> parameter.
+	</TypographyP>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm2">
+			<EditForm Model="Form" class="flex flex-col space-y-6" method="post" OnValidSubmit="Submit" FormName="profileForm2">
 				<DataAnnotationsValidator />
 				<InputGroup For="() => Form.Name" Description="Provide your full legal name">
 					<InputText type="text" @bind-Value="Form.Name" id="Name" />
 				</InputGroup>
-				<Button type="submit">Submit</Button>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
 			</EditForm>
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
 	<DataAnnotationsValidator />
 	<InputGroup For=""() => Form.Name"" Description=""Provide your full legal name"">
 		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
 	</InputGroup>
-	<Button type=""submit"">Submit</Button>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Cancel Link
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="flex flex-col space-y-6" method="post" OnValidSubmit="Submit" FormName="profileForm3">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Name" Description="Provide your full legal name">
+					<InputText type="text" @bind-Value="Form.Name" id="Name" />
+				</InputGroup>
+				<div class="flex items-center justify-between">
+					<Link Variant="ButtonVariant.Outline" href="/docs/components/forms">Cancel</Link>
+					<Button type="submit">Submit</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Name"" Description=""Provide your full legal name"">
+		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
+	</InputGroup>
+	<div class=""flex items-center justify-between"">
+		<Link Variant=""ButtonVariant.Outline"" href=""/docs/components/forms"">Cancel</Button>
+		<Button type=""submit"">Submit</Button>
+	</div>
 </EditForm>")
 			</CodeExample>
 		</ComponentPreviewCode>

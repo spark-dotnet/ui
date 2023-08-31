@@ -2,7 +2,7 @@
 @layout DocsLayout
 
 <PageTitle>
-	How to install the library in your Blazor or Spark app - spark.ui
+	How to install the library in your Blazor or Spark.NET app - spark.ui
 </PageTitle>
 
 <Breadcrumb>
@@ -42,7 +42,7 @@
 		Run the Tailwind CLI tool to scan your template files for classes and build your public CSS file.
 	</TypographyP>
 	<CodeExample Language="bash">
-@($@"npx tailwindcss -i ./Resources/Css/globals.css -o ./wwwroot/css/styles.css --watch")
+@($@"npx tailwindcss -i ./Styles/globals.css -o ./wwwroot/css/styles.css --watch")
 	</CodeExample> *@
 	<TypographyH2>
 		Install spark.ui with Blazor or Spark.NET
@@ -72,7 +72,7 @@
 	</TypographyP>
 	<TypographyList>
 		<li>Components/**/*</li>
-		<li>Resources/Css/globals.css</li>
+		<li>Styles/globals.css</li>
 		<li>postcss.config.js</li>
 		<li>tailwind.config.js</li>
 	</TypographyList>
@@ -87,7 +87,7 @@
 		3. Add css file reference
 	</TypographyH3>
 	<TypographyP>
-		The <InlineCode>Resources/Css/globals.css</InlineCode> file gets compiled into <InlineCode>/wwwroot/css/styles.css</InlineCode>.
+		The <InlineCode>Styles/globals.css</InlineCode> file gets compiled into <InlineCode>/wwwroot/css/styles.css</InlineCode>.
 	</TypographyP>
 	<TypographyP>
 		You need to add a reference to the <InlineCode>styles.css</InlineCode> in the head tag of your layout file.
@@ -108,9 +108,9 @@
 	</TypographyH3>
 	<CodeExample Language="csharp">
 @($@"@using Spark.UI.Components
-@using [YourProjectName].Components
-@using [YourProjectName].Components.Icons
-@using [YourProjectName].Components.Typography")
+@using [YourNamespace].Components
+@using [YourNamespace].Components.Icons
+@using [YourNamespace].Components.Typography")
 	</CodeExample>
 	<TypographyH3 class="mt-10">
 		5. Start the Tailwind CLI build process
@@ -119,6 +119,6 @@
 		Run the Tailwind CLI tool to scan your template files for classes and build your public CSS file.
 	</TypographyP>
 	<CodeExample Language="bash">
-@($@"npx tailwindcss -i ./Resources/Css/globals.css -o ./wwwroot/css/styles.css --watch")
+@($@"npx tailwindcss -i ./Styles/globals.css -o ./wwwroot/css/styles.css --watch")
 	</CodeExample>
 </div>

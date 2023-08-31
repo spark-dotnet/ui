@@ -1,6 +1,8 @@
 ﻿@page "/docs/components/textarea"
 @layout DocsLayout
 
+<PageTitle>Textarea component for Blazor - spark.ui</PageTitle>
+
 <Breadcrumb>
 	<BreadcrumbItem>
 		Docs
@@ -19,13 +21,20 @@
 	</TypographyLead>
 </div>
 <div class="pb-12 pt-8">
+	<TypographyH2>
+		Example
+	</TypographyH2>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<InputTextArea @bind-Value="Message" placeholder="Enter a message" />
+			<div class="w-full max-w-sm">
+				<InputTextArea @bind-Value="Message" placeholder="Enter a message" />
+			</div>
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<InputTextArea @bind-Value=""Message"" placeholder=""Enter a message"" />
+@($@"<div class=""w-full max-w-sm"">
+	<InputTextArea @bind-Value=""Message"" placeholder=""Enter a message"" />
+</div>
 
 @code {{
 	private string Message = "";
@@ -33,8 +42,93 @@
 			</CodeExample>
 		</ComponentPreviewCode>
 	</ComponentPreview>
+	<TypographyH2>
+		Label
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="space-y-1.5 w-full max-w-sm">
+				<Label for="Message">Message</Label>
+				<InputTextArea @bind-Value="Message" id="Message" placeholder="Enter a message" />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""space-y-1.5 w-full max-w-sm"">
+	<Label for=""Message"">Message</Label>
+	<InputTextArea @bind-Value=""Message"" id=""Message"" placeholder=""Enter a message"" />
+</div>
+
+@code {{
+	private string Message = "";
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Input Group
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" OnValidSubmit="Submit" class="space-y-6 w-full max-w-sm" method="post" FormName="pizzaForm">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.Message" Description="Tell us why you love our pizza so much">
+					<InputTextArea @bind-Value="Form.Message" id="Message" placeholder="Enter a message" />
+				</InputGroup>
+				<div>
+					<Button type="submit">
+						Submit
+					</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm Model=""Form"" OnValidSubmit=""Submit"" class=""space-y-6 w-full max-w-sm"" method=""post"" FormName=""pizzaForm"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.Message"" Description=""Tell us why you love our pizza so much"">
+		<InputTextArea @bind-Value=""Form.Message"" id=""Message"" placeholder=""Enter a message"" />
+	</InputGroup>
+	<div>
+		<Button type=""submit"">
+			Submit
+		</Button>
+	</div>
+</EditForm>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Disabled
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="w-full max-w-sm">
+				<InputTextArea @bind-Value="Message" placeholder="Enter a message" disabled />
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""w-full max-w-sm"">
+	<InputTextArea @bind-Value=""Message"" placeholder=""Enter a message"" disabled />
+</div>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
 </div>
 
 @code {
 	private string Message = "";
+	private PizzaForm Form { get; set; } = new();
+
+	private void Submit()
+	{
+
+	}
+
+	private class PizzaForm
+	{
+		[Required]
+		public string Message { get; set; }
+	}
 }

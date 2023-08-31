@@ -1,0 +1,50 @@
+﻿@page "/docs/components/form-description"
+@layout DocsLayout
+
+<PageTitle>Form description component for Blazor - spark.ui</PageTitle>
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Form Description
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Form Description
+	</TypographyH1>
+	<TypographyLead>
+		Displays a description for a form input control
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Example
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="space-y-1.5">
+				<Label for="Email">Email</Label>
+				<InputText type="email" @bind-Value="Email" id="Email" placeholder="Email" />
+				<FormDescription>Enter your business email address</FormDescription>
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""space-y-1.5"">
+	<Label for=""Email"">Email</Label>
+	<InputText type=""email"" @bind-Value=""Email"" id=""Email"" placeholder=""Email"" />
+	<FormDescription>Enter your business email address</FormDescription>
+</div>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>
+
+
+@code {
+	private string Email = "";
+}

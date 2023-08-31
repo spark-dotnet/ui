@@ -1,6 +1,8 @@
 ﻿@page "/docs/components/label"
 @layout DocsLayout
 
+<PageTitle>Label component for Blazor - spark.ui</PageTitle>
+
 <Breadcrumb>
 	<BreadcrumbItem>
 		Docs
@@ -54,7 +56,7 @@
 	</TypographyP>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm3">
+			<EditForm Model="Form" class="flex flex-col space-y-6" method="post" OnValidSubmit="Submit" FormName="profileForm3">
 				<DataAnnotationsValidator />
 				<InputGroup For="() => Form.Name">
 					<InputText type="text" @bind-Value="Form.Name" id="Name" />
@@ -66,7 +68,7 @@
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
 	<DataAnnotationsValidator />
 	<InputGroup For=""() => Form.Name"">
 		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />

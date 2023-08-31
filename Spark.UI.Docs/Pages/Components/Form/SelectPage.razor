@@ -1,0 +1,289 @@
+﻿@page "/docs/components/select"
+@layout DocsLayout
+
+<PageTitle>Select component for Blazor - spark.ui</PageTitle>
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Select
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Select
+	</TypographyH1>
+	<TypographyLead>
+		Displays a list of options for the user to pick from.
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<TypographyH2>
+		Example
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="w-full max-w-sm">
+				<InputSelect @bind-Value="FavoritePizza">
+					<option value="">Select a pizza...</option>
+					@foreach (var pizza in Pizzas)
+					{
+						<option value="@pizza.Key">@pizza.Value</option>
+					}
+				</InputSelect>
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""w-full max-w-sm"">
+	<InputSelect @bind-Value=""FavoritePizza"">
+		<option value="""">Select a pizza...</option>
+		@foreach (var pizza in Pizzas)
+		{{
+			<option value=""@pizza.Key"">@pizza.Value</option>
+		}}
+	</InputSelect>
+</div>
+
+@code {{
+	private Dictionary<string, string> Pizzas = new Dictionary<string, string>()
+	{{
+		{{
+			""bbq_chicken"", ""Bbq Chicken""
+		}},
+		{{
+			""cheese"", ""Cheese""
+		}},
+		{{
+			""hawaiian"", ""Hawaiian""
+		}},
+		{{
+			""pepperoni"", ""Pepperoni""
+		}},
+		{{
+			""supreme"", ""Supreme""
+		}}
+	}};
+	private string FavoritePizza {{ get; set; }}
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		With Label
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="w-full max-w-sm space-y-1.5">
+				<Label for="FavoritePizza">Pizza</Label>
+				<InputSelect @bind-Value="FavoritePizza" id="FavoritePizza">
+					<option value="">Select a pizza...</option>
+					@foreach (var pizza in Pizzas)
+					{
+						<option value="@pizza.Key">@pizza.Value</option>
+					}
+				</InputSelect>
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""w-full max-w-sm space-y-1.5"">
+	<Label for=""FavoritePizza"">Pizza</Label>
+	<InputSelect @bind-Value=""FavoritePizza"" id=""FavoritePizza"">
+		<option value="""">Select a pizza...</option>
+		@foreach (var pizza in Pizzas)
+		{{
+			<option value=""@pizza.Key"">@pizza.Value</option>
+		}}
+	</InputSelect>
+</div>
+
+@code {{
+	private Dictionary<string, string> Pizzas = new Dictionary<string, string>()
+	{{
+		{{
+			""bbq_chicken"", ""Bbq Chicken""
+		}},
+		{{
+			""cheese"", ""Cheese""
+		}},
+		{{
+			""hawaiian"", ""Hawaiian""
+		}},
+		{{
+			""pepperoni"", ""Pepperoni""
+		}},
+		{{
+			""supreme"", ""Supreme""
+		}}
+	}};
+	private string FavoritePizza {{ get; set; }}
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Input Group
+	</TypographyH2>
+	<TypographyP>
+		The <InlineCode>InputGroup</InlineCode> component will display a label for you based on the <InlineCode>For</InlineCode> parameter.
+	</TypographyP>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<EditForm Model="Form" class="w-full max-w-sm space-y-6" method="post" OnValidSubmit="Submit" FormName="pizzaForm">
+				<DataAnnotationsValidator />
+				<InputGroup For="() => Form.FavoritePizza" Label="Pizza" Description="Select your favorite pizza">
+					<InputSelect @bind-Value="Form.FavoritePizza" id="FavoritePizza">
+						<option value="">Select a pizza...</option>
+						@foreach (var pizza in Pizzas)
+						{
+							<option value="@pizza.Key">@pizza.Value</option>
+						}
+					</InputSelect>
+				</InputGroup>
+				<div>
+					<Button type="submit">Submit</Button>
+				</div>
+			</EditForm>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<EditForm class=""w-full max-w-sm space-y-6"" OnValidSubmit=""Submit"">
+	<DataAnnotationsValidator />
+	<InputGroup For=""() => Form.FavoritePizza"" Label=""Pizza"" Description=""Select your favorite pizza"">
+		<InputSelect @bind-Value=""Form.FavoritePizza"" id=""FavoritePizza"">
+			<option value="""">Select a pizza...</option>
+			@foreach (var pizza in Pizzas)
+			{{
+				<option value=""@pizza.Key"">@pizza.Value</option>
+			}}
+		</InputSelect>
+	</InputGroup>
+	<div>
+		<Button type=""submit"">Submit</Button>
+	</div>
+</EditForm>
+
+@code {{
+
+	public PizzaForm Form {{ get; set; }} = new();
+
+	private Dictionary<string, string> Pizzas = new Dictionary<string, string>()
+	{{
+		{{
+			""bbq_chicken"", ""Bbq Chicken""
+		}},
+		{{
+			""cheese"", ""Cheese""
+		}},
+		{{
+			""hawaiian"", ""Hawaiian""
+		}},
+		{{
+			""pepperoni"", ""Pepperoni""
+		}},
+		{{
+			""supreme"", ""Supreme""
+		}}
+	}};
+
+	public class PizzaForm
+	{{	
+		[Required]
+		public string FavoritePizza {{ get; set; }}
+	}}
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+	<TypographyH2>
+		Disabled
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<div class="w-full max-w-sm">
+				<InputSelect @bind-Value="FavoritePizza" disabled>
+					<option value="">Select a pizza...</option>
+					@foreach (var pizza in Pizzas)
+					{
+						<option value="@pizza.Key">@pizza.Value</option>
+					}
+				</InputSelect>
+			</div>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<div class=""w-full max-w-sm"">
+	<InputSelect @bind-Value=""FavoritePizza"" disabled>
+		<option value="""">Select a pizza...</option>
+		@foreach (var pizza in Pizzas)
+		{{
+			<option value=""@pizza.Key"">@pizza.Value</option>
+		}}
+	</InputSelect>
+</div>
+
+@code {{
+	private Dictionary<string, string> Pizzas = new Dictionary<string, string>()
+	{{
+		{{
+			""bbq_chicken"", ""Bbq Chicken""
+		}},
+		{{
+			""cheese"", ""Cheese""
+		}},
+		{{
+			""hawaiian"", ""Hawaiian""
+		}},
+		{{
+			""pepperoni"", ""Pepperoni""
+		}},
+		{{
+			""supreme"", ""Supreme""
+		}}
+	}};
+	private string FavoritePizza {{ get; set; }}
+}}")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>
+
+@code {
+	private Dictionary<string, string> Pizzas = new Dictionary<string, string>()
+	{
+		{
+			"bbq_chicken", "Bbq Chicken"
+		},
+		{
+			"cheese", "Cheese"
+		},
+		{
+			"hawaiian", "Hawaiian"
+		},
+		{
+			"pepperoni", "Pepperoni"
+		},
+		{
+			"supreme", "Supreme"
+		}
+	};
+	private string FavoritePizza { get; set; }
+	private string Name = "";
+	[SupplyParameterFromForm] public PizzaForm Form { get; set; }
+	protected override void OnInitialized() => Form ??= new();
+
+	public void Submit()
+	{
+		Form = new();
+	}
+
+	public class PizzaForm
+	{
+		[Required]
+		public string FavoritePizza { get; set; }
+	}
+}

@@ -1,6 +1,9 @@
 ﻿@page "/docs/components/input-group"
 @layout DocsLayout
 
+
+<PageTitle>Input group component for Blazor - spark.ui</PageTitle>
+
 <Breadcrumb>
 	<BreadcrumbItem>
 		Docs
@@ -26,11 +29,11 @@
 </div>
 <div class="pb-12 pt-8">
 	<TypographyH2>
-		Default
+		Example
 	</TypographyH2>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm">
+			<EditForm Model="Form" class="flex flex-col space-y-6" method="post" OnValidSubmit="Submit" FormName="profileForm">
 				<DataAnnotationsValidator />
 				<InputGroup For="() => Form.Name">
 					<InputText type="text" @bind-Value="Form.Name" id="Name" />
@@ -45,7 +48,7 @@
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
 	<DataAnnotationsValidator />
 	<InputGroup For=""() => Form.Name"">
 		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
@@ -68,7 +71,7 @@
 	</TypographyP>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm2">
+			<EditForm Model="Form" class="flex flex-col space-y-6" method="post" OnValidSubmit="Submit" FormName="profileForm2">
 				<DataAnnotationsValidator />
 				<InputGroup For="() => Form.Name" Label="Fullname">
 					<InputText type="text" @bind-Value="Form.Name" id="Name" />
@@ -83,7 +86,7 @@
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
 	<DataAnnotationsValidator />
 	<InputGroup For=""() => Form.Name"" Label=""Fullname"">
 		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />
@@ -106,7 +109,7 @@
 	</TypographyP>
 	<ComponentPreview>
 		<ComponentPreviewRendered>
-			<EditForm Model="Form" class="flex flex-col space-y-4" method="post" OnValidSubmit="Submit" FormName="profileForm3">
+			<EditForm Model="Form" class="flex flex-col space-y-6" method="post" OnValidSubmit="Submit" FormName="profileForm3">
 				<DataAnnotationsValidator />
 				<InputGroup For="() => Form.Name" Description="Provide your full name">
 					<InputText type="text" @bind-Value="Form.Name" id="Name" />
@@ -121,7 +124,7 @@
 		</ComponentPreviewRendered>
 		<ComponentPreviewCode>
 			<CodeExample>
-@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-4"" OnValidSubmit=""Submit"">
+@($@"<EditForm Model=""Form"" class=""flex flex-col space-y-6"" OnValidSubmit=""Submit"">
 	<DataAnnotationsValidator />
 	<InputGroup For=""() => Form.Name"" Description=""Provide your full name"">
 		<InputText type=""text"" @bind-Value=""Form.Name"" id=""Name"" />

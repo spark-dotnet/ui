@@ -21,7 +21,7 @@ Download the configs and components. Then unzip and paste them into the root of 
 The following is what you should have pasted in the root of your project.
 
 - Components/**/*
-- Resources/Css/globals.css
+- Styles/globals.css
 - postcss.config.js
 - tailwind.config.js
 
@@ -31,7 +31,7 @@ The following is what you should have pasted in the root of your project.
 >
 
 ### 3. Add css file reference
-The `Resources/Css/globals.css` file gets compiled into `/wwwroot/css/styles.css`.
+The `Styles/globals.css` file gets compiled into `/wwwroot/css/styles.css`.
 
 You need to add a reference to the styles.css in the head tag of your layout file.
 
@@ -56,5 +56,5 @@ We also recommend to add a reference to the inter font family. It's what is used
 ### 5. Start the Tailwind CLI build process
 Run the Tailwind CLI tool to scan your template files for classes and build your public CSS file.
 ```
-npx tailwindcss -i ./Resources/Css/globals.css -o ./wwwroot/css/styles.css --watch
+npx tailwindcss -i ./Styles/globals.css -o ./wwwroot/css/styles.css --watch
 ```
