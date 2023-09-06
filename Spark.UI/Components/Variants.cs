@@ -14,6 +14,9 @@ public enum BadgeVariant
 	Default,
 	Secondary,
 	Outline,
+	Success,
+	Info,
+	Warning,
 	Destructive,
 }
 

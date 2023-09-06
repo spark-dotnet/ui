@@ -50,4 +50,41 @@
 			</CodeExample>
 		</ComponentPreviewCode>
 	</ComponentPreview>
+	<TypographyH2>
+		Breadcrumb with Links
+	</TypographyH2>
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<Breadcrumb>
+				<BreadcrumbLinkItem  href="/">
+					Dashboard
+				</BreadcrumbLinkItem>
+				<ChevronRight class="h-4 w-4" />
+				<BreadcrumbLinkItem  href="/">
+					Profile
+				</BreadcrumbLinkItem>
+				<ChevronRight class="h-4 w-4" />
+				<BreadcrumbItem IsActive="true">
+					Settings
+				</BreadcrumbItem>
+			</Breadcrumb>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<Breadcrumb>
+	<BreadcrumbLinkItem  href=""/"">
+		Dashboard
+	</BreadcrumbLinkItem>
+	<ChevronRight class=""h-4 w-4"" />
+	<BreadcrumbLinkItem  href=""/"">
+		Profile
+	</BreadcrumbLinkItem>
+	<ChevronRight class=""h-4 w-4"" />
+	<BreadcrumbItem IsActive=""true"">
+		Settings
+	</BreadcrumbItem>
+</Breadcrumb>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
 </div>

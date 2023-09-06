@@ -1,0 +1,80 @@
+﻿@page "/docs/components/navbar"
+@layout DocsLayout
+
+<PageTitle>Navbar and nav links components for Blazor - spark.ui</PageTitle>
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4"/>
+	<BreadcrumbItem IsActive="true">
+		Navigation Bar
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Navigation Bar
+	</TypographyH1>
+	<TypographyLead>
+		Displays a Navbar
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<NavigationBar>
+				<nav class="flex items-center">
+					<NavigationLink href="/" IsActive="true">
+						Overview
+					</NavigationLink>
+					<NavigationLink href="/">
+						Customers
+					</NavigationLink>
+					<NavigationLink href="/">
+						Products
+					</NavigationLink>
+					<NavigationLink href="/">
+						Settings
+					</NavigationLink>
+				</nav>
+				<div class="ml-auto flex items-center space-x-4">
+					<ButtonLink Variant="ButtonVariant.Ghost" href="/">
+						Login
+					</ButtonLink>
+					<ButtonLink href="/">
+						Signup
+					</ButtonLink>
+				</div>
+			</NavigationBar>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<NavigationBar>
+	<nav class=""flex items-center"">
+		<NavigationLink href=""/"" IsActive=""true"">
+			Overview
+		</NavigationLink>
+		<NavigationLink href=""/"">
+			Customers
+		</NavigationLink>
+		<NavigationLink href=""/"">
+			Products
+		</NavigationLink>
+		<NavigationLink href=""/"">
+			Settings
+		</NavigationLink>
+	</nav>
+	<div class=""ml-auto flex items-center space-x-4"">
+		<ButtonLink Variant=""ButtonVariant.Ghost"" href=""/"">
+			Login
+		</ButtonLink>
+		<ButtonLink href=""/"">
+			Signup
+		</ButtonLink>
+	</div>
+</NavigationBar>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>

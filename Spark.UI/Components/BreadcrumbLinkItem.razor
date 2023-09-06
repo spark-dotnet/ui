@@ -1,0 +1,16 @@
+﻿@inherits SparkComponent
+
+<a @attributes="@attributes" class="text-sm hover:underline @activeClasses @classes">
+	@ChildContent
+</a>
+
+@code {
+	[Parameter]
+	public bool IsActive { get; set; } = false;
+	private string activeClasses = "";
+
+	protected override void OnInitialized()
+	{
+		activeClasses = IsActive ? "text-foreground font-medium" : "text-muted-foreground";
+	}
+}

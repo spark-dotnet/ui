@@ -1,0 +1,38 @@
+﻿@page "/docs/components/hero"
+@layout DocsLayout
+
+<PageTitle>Hero component for Blazor - spark.ui</PageTitle>
+
+<Breadcrumb>
+	<BreadcrumbItem>
+		Docs
+	</BreadcrumbItem>
+	<ChevronRight class="h-4 w-4" />
+	<BreadcrumbItem IsActive="true">
+		Hero
+	</BreadcrumbItem>
+</Breadcrumb>
+<div class="space-y-4">
+	<TypographyH1>
+		Hero
+	</TypographyH1>
+	<TypographyLead>
+		Style for the h1 element meant to be used as a hero
+	</TypographyLead>
+</div>
+<div class="pb-12 pt-8">
+	<ComponentPreview>
+		<ComponentPreviewRendered>
+			<TypographyHero>
+				Lorem Ipsum
+			</TypographyHero>
+		</ComponentPreviewRendered>
+		<ComponentPreviewCode>
+			<CodeExample>
+@($@"<TypographyHero>
+	Lorem Ipsum
+</TypographyHero>")
+			</CodeExample>
+		</ComponentPreviewCode>
+	</ComponentPreview>
+</div>

@@ -1,10 +1,8 @@
 ﻿@inherits SparkComponent
 
-<a class="hidden sm:block transition-colors hover:text-foreground/80 @activeClasses @classes" @attributes="@attributes">
+<a @attributes="@attributes" class="@activeClasses px-3 py-1 rounded inline-flex items-center text-sm font-medium transition-colors hover:text-primary @classes">
 	@ChildContent
 </a>
-
-
 
 @code {
 	[Parameter]
@@ -13,6 +11,6 @@
 
 	protected override void OnInitialized()
 	{
-		activeClasses = IsActive ? "text-foreground" : "text-foreground/60";
+		activeClasses = IsActive ? "text-primary" : "text-muted-foreground";
 	}
 }
